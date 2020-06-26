@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SheCooks</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
+
+      body {
+        font-family: "Alice", serif;
+        text-align: center;
+        line-height: 1.5;
+        background-image: url("https://github.com/laura-dumitru/shecodes-project/raw/master/tile.png");
+        background-size: 160px;
+        margin: 0;
+      }
+      .frame {
+        background: linear-gradient(white 80%, #f2f2f2);
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 600px;
+        border-radius: 16px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        padding: 0;
+      }
+
+      h3,
+      ul {
+        list-style: none;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+      }
+
+      .ingredients {
+        display: flex;
+        padding: 20px;
+        max-width: 600px;
+        border-radius: 16px;
+      }
+
+      .ingredients h3 {
+        margin-left: 4px;
+      }
+
+      .ingredients:hover {
+        background-color: #93d894;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      input[type="checkbox"] {
+        cursor: pointer;
+      }
+
+      h1 {
+        color: #93d894;
+        font-size: 40px;
+        text-align: center;
+        padding: 10px;
+      }
+      h2 {
+        font-size: 30px;
+        color: #93d894;
+      }
+      h3 {
+        font-size: 22px;
+        padding-bottom: 6px;
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
+        max-height: 512px;
+      }
+      .recipe img {
+        margin: 20px auto;
+        border-radius: 16px;
+        max-height: 200px;
+      }
+
+      p {
+        margin: 0;
+      }
+      .point,
+      .chef,
+      .laura {
+        font-size: 30px;
+      }
+      a {
+        display: block;
+        color: black;
+      }
+      a:hover {
+        color: #93d894;
+      }
+
+      hr {
+        border: none;
+        padding: 0;
+        margin: 16px auto;
+        height: 1px;
+        width: 50%;
+        background-color: #efebe6;
+      }
+
+      .recipe {
+        display: none;
+      }
+
+      #queasy p,
+      #sick p {
+        font-size: 70px;
+      }
+
+      button,
+      .ingredients {
+        transition: all 200ms ease-in-out;
+      }
+
+      button {
+        display: block;
+        font-family: "Alice", serif;
+        margin: 20px auto;
+        border-radius: 30px;
+        border: none;
+        background: #93d894;
+        outline: none;
+        color: white;
+        padding: 16px 24px;
+        font-size: 20px;
+        line-height: 22px;
+        box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+      }
+      button:hover {
+        background-color: #81c782;
+        cursor: pointer;
+      }
+
+      span {
+        color: #d0565c;
+      }
+
+      footer {
+        text-align: center;
+        padding-bottom: 1px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="frame">
+      <h1>🌽 SheCooks 🌽</h1>
+      <hr />
+
+      <img
+        src="https://i.pinimg.com/474x/88/d8/8f/88d88fbccf0e5f21e9b1b9248612f28d.jpg"
+        alt="Women Cooking"
+      />
+
+      <hr />
+
+      <h2>Looking for some dinner inspiration?</h2>
+      <p>
+        Pick your favourite ingredients to unlock your veggie recipe
+      </p>
+      <p class="point">👇🏼</p>
+
+      <hr />
+
+      <div class="ingredients">
+        <div class="column">
+          <h3>🥛 Dairy 🧀</h3>
+          <ul>
+            <li>
+              <input type="checkbox" name="parmesan" onclick="filterRecipe()" />
+              <label for="parmesan">Parmersan</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                name="mozarella"
+                onclick="filterRecipe()"
+              />
+              <label for="mozarella">Mozarella</label>
+            </li>
+            <li>
+              <input type="checkbox" name="milk" onclick="filterRecipe()" />
+              <label for="milk">Milk</label>
+            </li>
+            <li>
+              <input type="checkbox" name="eggs" onclick="filterRecipe()" />
+              <label for="eggs">Eggs</label>
+            </li>
+            <li>
+              <input type="checkbox" name="butter" onclick="filterRecipe()" />
+              <label for="butter">Butter</label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h3>🍆 Veg 🍅</h3>
+          <ul>
+            <li>
+              <input
+                type="checkbox"
+                name="sweetcorn"
+                onclick="filterRecipe()"
+              />
+              <label for="sweetcorn">Sweetcorn</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                name="courgettes"
+                onclick="filterRecipe()"
+              />
+              <label for="courgettes">Courgettes</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                name="aubergine"
+                onclick="filterRecipe()"
+              />
+              <label for="tinned tomatoes">Aubergine</label>
+            </li>
+            <li>
+              <input type="checkbox" name="basil" onclick="filterRecipe()" />
+              <label for="basil">Basil</label>
+            </li>
+
+            <li>
+              <input type="checkbox" name="garlic" onclick="filterRecipe()" />
+              <label for="garlic">Garlic</label>
+            </li>
+            <li>
+              <input type="checkbox" name="tomatoes" onclick="filterRecipe()" />
+              <label for="tomatoes">Tomatoes</label>
+            </li>
+            <li>
+              <input type="checkbox" name="vegballs" onclick="filterRecipe()" />
+              <label for="vegballs">Veg meatballs</label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h3>🍞 Grains 🍝</h3>
+          <ul>
+            <li>
+              <input type="checkbox" name="bread" onclick="filterRecipe()" />
+              <label for="bread">Sourdough</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                name="spaghetti"
+                onclick="filterRecipe()"
+              />
+              <label for="spaghetti">Spaghetti</label>
+            </li>
+            <li>
+              <input type="checkbox" name="pasta" onclick="filterRecipe()" />
+              <label for="pasta">Pasta</label>
+            </li>
+            <li>
+              <input type="checkbox" name="flour" onclick="filterRecipe()" />
+              <label for="flour">Flour</label>
+            </li>
+            <li>
+              <input type="checkbox" name="sugar" onclick="filterRecipe()" />
+              <label for="sugar">Sugar</label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h3>🍓 Fruit 🍒</h3>
+          <ul>
+            <li>
+              <input type="checkbox" name="lemon" onclick="filterRecipe()" />
+              <label for="lemon">Lemon</label>
+            </li>
+            <li>
+              <input type="checkbox" name="cherries" onclick="filterRecipe()" />
+              <label for="cherries">Cherries</label>
+            </li>
+            <li>
+              <input type="checkbox" name="avocado" onclick="filterRecipe()" />
+              <label for="avocado">Avocado</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                name="strawberries"
+                onclick="filterRecipe()"
+              />
+              <label for="strawberries">Strawberries</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                name="watermelon"
+                onclick="filterRecipe()"
+              />
+              <label for="watermelon">Watermelon</label>
+            </li>
+            <li>
+              <input type="checkbox" name="lime" onclick="filterRecipe()" />
+              <label for="lime">Lime</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="recipe" id="pizza">
+        <hr />
+        <h2>🍕 Pizza Primavera 🍕</h2>
+        <p>A real bite of summer!</p>
+        <img
+          src="https://howsweeteats.com/wp-content/uploads/2014/07/zucchini-corn-pizza-I-howsweeteats.com-5.jpg"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://howsweeteats.com/2014/07/sweet-corn-zucchini-and-fresh-mozzarella-pizza"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="avocadoToast">
+        <hr />
+        <h2>🥑 Avocado Toast 🍳</h2>
+        <p>Easy breakfast!</p>
+        <img
+          src="https://homecookingmemories.com/wp-content/uploads/2013/04/Sliced-Avocados-on-Sourdough-Toast-with-Poached-Egg-2.jpg"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://homecookingmemories.com/poached-egg-avocado-sourdough-jarlsberg-cheese"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="vegSpaghetti">
+        <hr />
+        <h2>🍝 Vegetarian Meatballs Spaghetti 🍝</h2>
+        <p>Lady and the Tramp style! 🐕</p>
+        <img
+          src="https://bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2019/11/vegan-meatballs.jpg?itok=j5Wxsl2F"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href=" https://bbcgoodfood.com/recipes/vegan-meatballs"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="babaGanoush">
+        <hr />
+        <h2>🍆 Baba Ganoush 🍆</h2>
+        <p>A quick Lebanese dip! 🇱🇧</p>
+        <img
+          src="https://cookieandkate.com/images/2017/10/easy-baba-ganoush-recipe.jpg"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://cookieandkate.com/epic-baba-ganoush-recipe/"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="courgettePasta">
+        <hr />
+        <h2>🥒 Courgette Pasta 🍲</h2>
+        <p>Quick and easy!</p>
+        <img
+          src=" https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/18125847/Dacampo-Zucchini-Pasta-Salad-Recipe-main.jpg"
+          ;
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://www.finecooking.com/recipe/pasta-salad-with-zucchini-and-balsamic-vinegar-fusilli-con-zucchine-alla-scapece"
+            ;
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="cherryCake">
+        <hr />
+        <h2>🍒 Cherry Cake 🍰</h2>
+        <p>Just like grandma used to make it!</p>
+        <img
+          src="https://grandmotherskitchen.org/uploads/8039/thumbnails/recipe.jpg"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href=" https://grandmotherskitchen.org/recipes/easy-to-make-cherry-cake.html"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="watermelonSmoothie">
+        <hr />
+        <h2>🍓 Strawberries &<br />Watermelon Smoothie 🍉</h2>
+        <p>Refreshing and colourful!</p>
+        <img
+          src="https://www.jessicagavin.com/wp-content/uploads/2016/05/blended-strawberry-watermelon-lime-healthy-smoothie.jpg"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://www.jessicagavin.com/strawberry-watermelon-lime-smoothie/"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="ratatouille">
+        <hr />
+        <h2>🍅 Ratatouille 🥗</h2>
+        <p>A healthy midweek supper!</p>
+        <img
+          src="https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/ratatouille_19540_16x9.jpg"
+          ;
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://www.bbc.co.uk/food/recipes/ratatouille_19540"
+            ;
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="cherrySmoothie">
+        <hr />
+        <h2>
+          🍓 Strawberry and <br />
+          Cherry Smoothie 🍒
+        </h2>
+        <p>Fresh and fruity!</p>
+        <img
+          src="https://www.spiritedandthensome.com/wp-content/uploads/2018/02/Strawberry-Cherry-Smoothie-is-a-delicious-paleo-or-vegan-smoothie-recipe.jpg"
+          ;
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://www.spiritedandthensome.com/strawberry-cherry-smoothie-recipe/"
+            ;
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="queasy">
+        <hr />
+        <h2>Ewww! Try again!</h2>
+        <p>🤢</p>
+      </div>
+
+      <div class="recipe" id="sick">
+        <hr />
+        <h2>Not a great combination, try again!</h2>
+        <p>🤮</p>
+      </div>
+
+      <hr />
+
+      <p class="subscribe">
+        Subscribe below to be the first to hear about upcoming recipes!
+      </p>
+      <p class="chef">👩🏻‍🍳</p>
+
+      <button type="button">Let's cook!</button>
+
+      <footer>Coded by Laura Dumitru</footer>
+      <p class="laura">👩🏻‍💻</p>
+      <br />
+    </div>
+  </body>
+
+  <script>
+    let vegSpaghettiRecipe = document.getElementById("vegSpaghetti");
+    let vegSpaghetti = [
+      "spaghetti",
+      "parmesan",
+      "basil",
+      "tomatoes",
+      "vegballs",
+    ];
+
+    let avocadoToastRecipe = document.getElementById("avocadoToast");
+    let avocadoToast = ["avocado", "bread", "eggs"];
+
+    let pizzaRecipe = document.getElementById("pizza");
+    let pizza = ["tomatoes", "flour", "mozarella", "sweetcorn", "courgettes"];
+
+    let babaGanoushRecipe = document.getElementById("babaGanoush");
+    let babaGanoush = ["aubergine", "garlic", "lemon"];
+
+    let cherryCakeRecipe = document.getElementById("cherryCake");
+    let cherryCake = ["cherries", "flour", "sugar", "eggs", "milk", "butter"];
+
+    let courgettePastaRecipe = document.getElementById("courgettePasta");
+    let courgettePasta = ["courgettes", "pasta", "garlic"];
+
+    let watermelonSmoothieRecipe = document.getElementById(
+      "watermelonSmoothie"
+    );
+    let watermelonSmoothie = ["watermelon", "strawberries", "lime"];
+
+    let ratatouilleRecipe = document.getElementById("ratatouille");
+    let ratatouille = ["aubergine", "courgettes", "tomatoes", "garlic"];
+
+    let cherrySmoothieRecipe = document.getElementById("cherrySmoothie");
+    let cherrySmoothie = ["strawberries", "cherries", "milk"];
+
+    let queasyRecipe = document.getElementById("queasy");
+    let queasy = [
+      ["eggs", "strawberries"],
+      ["lemon", "butter"],
+      ["mozarella", "cherries"],
+      ["tomatoes", "sugar"],
+      ["spaghetti", "sugar"],
+      ["watermelon", "avocado"],
+    ];
+
+    let sickRecipe = document.getElementById("sick");
+    let sick = [
+      ["milk", "garlic"],
+      ["mozarella", "watermelon"],
+      ["avocado", "pasta"],
+      ["tomatoes", "strawberries"],
+      ["parmesan", "sweetcorn"],
+      ["aubergine", "eggs"],
+      ["vegballs", "watermelon"],
+      ["eggs", "lemon"],
+      ["mozarella", "lime"],
+      ["garlic", "sugar"],
+      ["basil", "milk"],
+      ["spaghetti", "strawberries"],
+      ["spaghetti", "cherries"],
+    ];
+
+    function compareToChecked(recipe) {
+      let checked = document.querySelectorAll("*:checked");
+      checked = Array.from(checked).map(function (element) {
+        return element.name;
+      });
+      return (
+        checked.length >= 2 &&
+        checked.every(function (ingredient) {
+          return recipe.includes(ingredient);
+        })
+      );
+    }
+
+    function compareAllToChecked(ingredients) {
+      return ingredients.some(function (ingredients) {
+        return compareToChecked(ingredients);
+      });
+    }
+
+    function filterRecipe() {
+      let recipes = Array.from(document.querySelectorAll(".recipe"));
+      function hide(recipe) {
+        recipe.style.setProperty("display", "none");
+      }
+      recipes.forEach(hide);
+
+      if (compareToChecked(vegSpaghetti)) {
+        vegSpaghettiRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(avocadoToast)) {
+        avocadoToastRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(pizza)) {
+        pizzaRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(babaGanoush)) {
+        babaGanoushRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(cherryCake)) {
+        cherryCakeRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(courgettePasta)) {
+        courgettePastaRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(watermelonSmoothie)) {
+        watermelonSmoothieRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(ratatouille)) {
+        ratatouilleRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(cherrySmoothie)) {
+        cherrySmoothieRecipe.style.setProperty("display", "inherit");
+      } else if (compareAllToChecked(queasy)) {
+        queasyRecipe.style.setProperty("display", "inherit");
+      } else if (compareAllToChecked(sick)) {
+        sickRecipe.style.setProperty("display", "inherit");
+      }
+    }
+
+    function joinUs() {
+      let name = prompt("What is your name?");
+      let contact = prompt("What is your e-mail address?");
+      let dish = prompt("What is your favourite dish?");
+
+      let subscribe = document.querySelector(".subscribe");
+      subscribe.innerHTML = `<strong>Thank you <span><em>${name}</em></span>! We'll be in touch soon about upcoming recipes. Happy cooking!</strong>`;
+    }
+    let letsCook = document.querySelector("button");
+    letsCook.addEventListener("click", joinUs);
+  </script>
+</html>
