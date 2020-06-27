@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:image"
+      content="https://repository-images.githubusercontent.com/273796037/80fa9880-b8cb-11ea-8356-63dff76c78c2"
+    />
     <title>SheCooks</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
@@ -16,7 +20,7 @@
         margin: 0;
       }
       .frame {
-        background: linear-gradient(white 80%, #f2f2f2);
+        background: white;
         margin: 20px auto;
         padding: 20px;
         max-width: 600px;
@@ -43,10 +47,6 @@
         padding: 20px;
         max-width: 600px;
         border-radius: 16px;
-      }
-
-      .ingredients h3 {
-        margin-left: 4px;
       }
 
       .ingredients:hover {
@@ -150,8 +150,57 @@
       }
 
       footer {
-        text-align: center;
-        padding-bottom: 1px;
+        padding-bottom: 10px;
+      }
+      footer a {
+        display: inline;
+      }
+
+      @media (max-width: 480px) {
+        .frame {
+          margin: 0 0 0 0;
+          border-radius: 0;
+        }
+
+        .ingredients {
+          display: grid;
+          background-color: #93d894;
+        }
+        .row1 {
+          grid-row: 1;
+          margin-bottom: 20px;
+        }
+        .row2 {
+          grid-row: 2;
+        }
+
+        img {
+          max-height: 300px;
+        }
+        .recipe img {
+          max-width: calc(100vw - 40px);
+        }
+
+        h1 {
+          font-size: 32px;
+          line-height: 0;
+        }
+        h2,
+        h3 {
+          font-size: 22px;
+          line-height: 26px;
+        }
+
+        .point,
+        .chef,
+        .laura {
+          font-size: 25px;
+          line-height: 50px;
+        }
+
+        button {
+          font-size: 18px;
+        }
       }
     </style>
   </head>
@@ -170,14 +219,15 @@
 
       <h2>Looking for some dinner inspiration?</h2>
       <p>
-        Pick your favourite ingredients to unlock your veggie recipe
+        Pick a combination of <strong>two</strong> ingredients to unlock your
+        veggie recipe.
       </p>
       <p class="point">👇🏼</p>
 
       <hr />
 
       <div class="ingredients">
-        <div class="column">
+        <div class="column row1">
           <h3>🥛 Dairy 🧀</h3>
           <ul>
             <li>
@@ -207,7 +257,37 @@
           </ul>
         </div>
 
-        <div class="column">
+        <div class="column row1">
+          <h3>🍞 Grains 🍝</h3>
+          <ul>
+            <li>
+              <input type="checkbox" name="bread" onclick="filterRecipe()" />
+              <label for="bread">Sourdough</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                name="spaghetti"
+                onclick="filterRecipe()"
+              />
+              <label for="spaghetti">Spaghetti</label>
+            </li>
+            <li>
+              <input type="checkbox" name="pasta" onclick="filterRecipe()" />
+              <label for="pasta">Pasta</label>
+            </li>
+            <li>
+              <input type="checkbox" name="flour" onclick="filterRecipe()" />
+              <label for="flour">Flour</label>
+            </li>
+            <li>
+              <input type="checkbox" name="sugar" onclick="filterRecipe()" />
+              <label for="sugar">Sugar</label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="column row2">
           <h3>🍆 Veg 🍅</h3>
           <ul>
             <li>
@@ -254,37 +334,7 @@
           </ul>
         </div>
 
-        <div class="column">
-          <h3>🍞 Grains 🍝</h3>
-          <ul>
-            <li>
-              <input type="checkbox" name="bread" onclick="filterRecipe()" />
-              <label for="bread">Sourdough</label>
-            </li>
-            <li>
-              <input
-                type="checkbox"
-                name="spaghetti"
-                onclick="filterRecipe()"
-              />
-              <label for="spaghetti">Spaghetti</label>
-            </li>
-            <li>
-              <input type="checkbox" name="pasta" onclick="filterRecipe()" />
-              <label for="pasta">Pasta</label>
-            </li>
-            <li>
-              <input type="checkbox" name="flour" onclick="filterRecipe()" />
-              <label for="flour">Flour</label>
-            </li>
-            <li>
-              <input type="checkbox" name="sugar" onclick="filterRecipe()" />
-              <label for="sugar">Sugar</label>
-            </li>
-          </ul>
-        </div>
-
-        <div class="column">
+        <div class="column row2">
           <h3>🍓 Fruit 🍒</h3>
           <ul>
             <li>
@@ -401,13 +451,11 @@
         <p>Quick and easy!</p>
         <img
           src=" https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/18125847/Dacampo-Zucchini-Pasta-Salad-Recipe-main.jpg"
-          ;
         />
         <p>
           For full recipe, click below:
           <a
             href="https://www.finecooking.com/recipe/pasta-salad-with-zucchini-and-balsamic-vinegar-fusilli-con-zucchine-alla-scapece"
-            ;
             target="blank"
           >
             Access your recipe
@@ -457,13 +505,11 @@
         <p>A healthy midweek supper!</p>
         <img
           src="https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/ratatouille_19540_16x9.jpg"
-          ;
         />
         <p>
           For full recipe, click below:
           <a
             href="https://www.bbc.co.uk/food/recipes/ratatouille_19540"
-            ;
             target="blank"
           >
             Access your recipe
@@ -480,13 +526,141 @@
         <p>Fresh and fruity!</p>
         <img
           src="https://www.spiritedandthensome.com/wp-content/uploads/2018/02/Strawberry-Cherry-Smoothie-is-a-delicious-paleo-or-vegan-smoothie-recipe.jpg"
-          ;
         />
         <p>
           For full recipe, click below:
           <a
-            href="https://www.spiritedandthensome.com/strawberry-cherry-smoothie-recipe/"
-            ;
+            href="https://www.spiritedandthensome.com/strawberry-cherry-smoothie-recipe"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="tomatoMozarellaBake">
+        <hr />
+        <h2>🍝 Tomato & mozarella spaghetti 🍝</h2>
+        <p>A winning combination for the entire family!</p>
+        <img
+          src="https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--328027_11.jpg?itok=I6VuldNI"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://www.bbcgoodfood.com/recipes/tomato-mozzarella-spaghetti-bake"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="freshTomato">
+        <hr />
+        <h2>🍝 Pasta with tomato sauce and mozarella 🍅</h2>
+        <p>A great way to use fresh tomatoes!</p>
+        <img
+          src="https://greenvalleykitchen.com/wp-content/uploads/2014/08/Pasta-with-fresh-tomato-sauce-and-mozzarella-cu.jpg"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://greenvalleykitchen.com/pasta-fresh-tomato-sauce-mozzarella"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="bakedCourgettes">
+        <hr />
+        <h2>
+          🥒 Baked parmesan courgettes 🧀
+        </h2>
+        <p>Yum!</p>
+        <img
+          src="https://s23209.pcdn.co/wp-content/uploads/2014/06/IMG_2270edit-360x360.jpg"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://damndelicious.net/2014/06/21/baked-parmesan-zucchini"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="veggieMozarella">
+        <hr />
+        <h2>
+          🧆 Veggie balls with courgette and mozarella 🥒
+        </h2>
+        <p>Crispy on the outside, creamy on the inside!</p>
+        <img
+          src=" https://annetravelfoodie.com/wp-content/uploads/2020/03/vegetarian-balls-courgette-mozzarella-1024x722.jpg"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://annetravelfoodie.com/vegetarian-balls-courgette-mozzarella"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="parmesanPasta">
+        <hr />
+        <h2>🍲 Tomato parmesan pasta 🧀</h2>
+        <p>Super quick to make!</p>
+        <img
+          src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F242356.jpg&w=264&h=176&c=sc&poi=face&q=85"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://www.allrecipes.com/recipe/193187/tomato-basil-penne-pasta/"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="sourdoughMozarella">
+        <hr />
+        <h2>🍞 Little sourdough caprese pizzas 🍅</h2>
+        <p>Great on their own or with a salad!</p>
+        <img
+          src="https://www.curiouscuisiniere.com/wp-content/uploads/2013/05/DSCF5546.2.jpg"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://www.curiouscuisiniere.com/individual-sourdough-caprese-pizzas"
+            target="blank"
+          >
+            Access your recipe
+          </a>
+        </p>
+      </div>
+
+      <div class="recipe" id="lemonMuffin">
+        <hr />
+        <h2>🍋 Lemon & Cherry Muffins 🍒</h2>
+        <p>Great little snack!</p>
+        <img
+          src="https://nitrocdn.com/PmRSQsdkdpfMmSJMKBYYVmHBAANGkwYA/assets/static/optimized/rev-c197aad/wp-content/uploads/2011/11/lemon-cherry-muffins-featue.jpg"
+        />
+        <p>
+          For full recipe, click below:
+          <a
+            href="https://www.lanascooking.com/lemon-and-cherry-muffins/"
             target="blank"
           >
             Access your recipe
@@ -515,9 +689,19 @@
 
       <button type="button">Let's cook!</button>
 
-      <footer>Coded by Laura Dumitru</footer>
-      <p class="laura">👩🏻‍💻</p>
-      <br />
+      <footer>
+        <a
+          href="https://github.com/laura-dumitru/shecodes-project"
+          target="blank"
+        >
+          Coded
+        </a>
+        by
+        <a href="https://instagram.com/lauraramona88" target="blank"
+          >Laura Dumitru
+        </a>
+        <p class="laura">👩🏻‍💻</p>
+      </footer>
     </div>
   </body>
 
@@ -557,14 +741,48 @@
     let cherrySmoothieRecipe = document.getElementById("cherrySmoothie");
     let cherrySmoothie = ["strawberries", "cherries", "milk"];
 
+    let tomatoMozarellaBakeRecipe = document.getElementById(
+      "tomatoMozarellaBake"
+    );
+    let tomatoMozarellaBake = [
+      "tomatoes",
+      "mozarella",
+      "spaghetti",
+      "parmesan",
+      "basil",
+    ];
+
+    let freshTomatoPastaRecipe = document.getElementById("freshTomato");
+    let freshTomatoPasta = ["pasta", "tomatoes", "mozarella"];
+
+    let bakedCourgettesRecipe = document.getElementById("bakedCourgettes");
+    let bakedCourgettes = ["courgettes", "parmesan", "basil", "garlic"];
+
+    let VeggieMozarellaRecipe = document.getElementById("veggieMozarella");
+    let veggieMozarella = ["vegballs", "mozarella", "courgette", "basil"];
+
+    let parmesanPastaRecipe = document.getElementById("parmesanPasta");
+    let parmesanPasta = ["parmesan", "pasta", "garlic", "basil"];
+
+    let sourdoughMozarellaRecipe = document.getElementById(
+      "sourdoughMozarella"
+    );
+    let sourdoughMozarella = ["bread", "mozarella", "tomatoes"];
+
+    let lemonMuffinRecipe = document.getElementById("lemonMuffin");
+    let lemonMuffin = ["lemon", "cherries", "sugar", "flour"];
+
     let queasyRecipe = document.getElementById("queasy");
     let queasy = [
       ["eggs", "strawberries"],
       ["lemon", "butter"],
       ["mozarella", "cherries"],
+      ["mozarella", "milk"],
       ["tomatoes", "sugar"],
       ["spaghetti", "sugar"],
       ["watermelon", "avocado"],
+      ["eggs", "mozarella"],
+      ["flour", "watermelon"],
     ];
 
     let sickRecipe = document.getElementById("sick");
@@ -581,6 +799,10 @@
       ["garlic", "sugar"],
       ["basil", "milk"],
       ["spaghetti", "strawberries"],
+      ["parmesan", "eggs"],
+      ["parmesan", "sugar"],
+      ["milk", "lemon"],
+      ["avocado", "cherries"],
       ["spaghetti", "cherries"],
     ];
 
@@ -628,6 +850,20 @@
         ratatouilleRecipe.style.setProperty("display", "inherit");
       } else if (compareToChecked(cherrySmoothie)) {
         cherrySmoothieRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(tomatoMozarellaBake)) {
+        tomatoMozarellaBakeRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(freshTomatoPasta)) {
+        freshTomatoPastaRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(bakedCourgettes)) {
+        bakedCourgettesRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(veggieMozarella)) {
+        VeggieMozarellaRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(parmesanPasta)) {
+        parmesanPastaRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(sourdoughMozarella)) {
+        sourdoughMozarellaRecipe.style.setProperty("display", "inherit");
+      } else if (compareToChecked(lemonMuffin)) {
+        lemonMuffinRecipe.style.setProperty("display", "inherit");
       } else if (compareAllToChecked(queasy)) {
         queasyRecipe.style.setProperty("display", "inherit");
       } else if (compareAllToChecked(sick)) {
@@ -641,7 +877,7 @@
       let dish = prompt("What is your favourite dish?");
 
       let subscribe = document.querySelector(".subscribe");
-      subscribe.innerHTML = `<strong>Thank you <span><em>${name}</em></span>! We'll be in touch soon about upcoming recipes. Happy cooking!</strong>`;
+      subscribe.innerHTML = `<strong>Thank you <span><em>${name}</em></span> ! We'll be in touch soon about upcoming recipes. Happy cooking!</strong>`;
     }
     let letsCook = document.querySelector("button");
     letsCook.addEventListener("click", joinUs);
