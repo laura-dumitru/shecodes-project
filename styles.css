@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
+
+body {
+  font-family: "Alice", serif;
+  text-align: center;
+  line-height: 1.5;
+  background-image: url("img/tile.png");
+  background-size: 160px;
+  margin: 0;
+}
+.frame {
+  background: white;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  border-radius: 16px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+h3,
+ul {
+  list-style: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.ingredients {
+  display: flex;
+  padding: 20px;
+  max-width: 600px;
+  border-radius: 16px;
+}
+
+.ingredients:hover {
+  background-color: #93d894;
+}
+
+.column {
+  flex: 1;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+h1 {
+  color: #93d894;
+  font-size: 40px;
+  text-align: center;
+  padding: 10px;
+}
+h2 {
+  font-size: 30px;
+  color: #93d894;
+}
+h3 {
+  font-size: 22px;
+  padding-bottom: 6px;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  max-height: 512px;
+}
+.recipe img {
+  margin: 20px auto;
+  border-radius: 16px;
+  max-height: 200px;
+}
+
+p {
+  margin: 0;
+}
+.point,
+.chef,
+.laura {
+  font-size: 30px;
+}
+a {
+  display: block;
+  color: black;
+}
+a:hover {
+  color: #93d894;
+}
+
+hr {
+  border: none;
+  padding: 0;
+  margin: 16px auto;
+  height: 1px;
+  width: 50%;
+  background-color: #efebe6;
+}
+
+.recipe {
+  display: none;
+}
+
+#queasy p,
+#sick p {
+  font-size: 70px;
+}
+
+button,
+.ingredients {
+  transition: all 200ms ease-in-out;
+}
+
+button {
+  display: block;
+  font-family: "Alice", serif;
+  margin: 20px auto;
+  border-radius: 30px;
+  border: none;
+  background: #93d894;
+  outline: none;
+  color: white;
+  padding: 16px 24px;
+  font-size: 20px;
+  line-height: 22px;
+  box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+}
+button:hover {
+  background-color: #81c782;
+  cursor: pointer;
+}
+
+span {
+  color: #d0565c;
+}
+
+footer {
+  padding-bottom: 10px;
+}
+footer a {
+  display: inline;
+}
+
+@media (max-width: 480px) {
+  .frame {
+    margin: 0 0 0 0;
+    border-radius: 0;
+  }
+
+  .ingredients {
+    display: grid;
+    background-color: #93d894;
+  }
+  .row1 {
+    grid-row: 1;
+    margin-bottom: 20px;
+  }
+  .row2 {
+    grid-row: 2;
+  }
+
+  img {
+    max-height: 300px;
+  }
+  .recipe img {
+    max-width: calc(100vw - 40px);
+  }
+
+  h1 {
+    font-size: 32px;
+    line-height: 0;
+  }
+  h2,
+  h3 {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .point,
+  .chef,
+  .laura {
+    font-size: 25px;
+    line-height: 50px;
+  }
+
+  button {
+    font-size: 18px;
+  }
+}
